@@ -1,0 +1,112 @@
+@import "./mixins.scss";
+
+button,
+input {
+  font-family: "Kalam";
+  border: none;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
+}
+
+button {
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background-color: turquoise;
+  font-family: "Kalam";
+  font-size: 16pt;
+
+  .to-do-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    .create-item-wrapper {
+      #create-item-text {
+        width: 300px;
+      }
+
+      .create-item-btn {
+        border: none;
+        background-color: white;
+
+        &:hover {
+          background-color: lightgray;
+        }
+      }
+    }
+
+    .list-container {
+      flex: 1;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      height: fit-content;
+      margin: 20px 0px;
+
+      .item-list-wrapper {
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+        width: 42vw;
+
+        .list-title {
+          display: flex;
+          justify-content: center;
+          margin: 0;
+        }
+
+        .item-list {
+          .empty-item {
+            color: gray;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+          }
+
+          .to-do-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .checkbox-container {
+              @include checkbox;
+            }
+
+            .item-text {
+              padding: 0 10px;
+              flex: 1;
+              word-break: break-word;
+            }
+
+            .delete-item {
+              color: darkred;
+
+              &:hover {
+                color: red;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
